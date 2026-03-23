@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Equipment | The Entity Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+}
+
+nav h2{
+  color:#00e5ff;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:60px 20px 30px;
+}
+
+.header h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.header p{
+  opacity:0.85;
+}
+
+/* FILTER BUTTONS */
+.filters{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.filters button{
+  padding:10px 18px;
+  margin:6px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:#00e5ff;
+  color:#000;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.filters button:hover{
+  background:#00bcd4;
+}
+
+/* PRODUCT GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  padding:0 8% 60px;
+}
+
+/* PRODUCT CARD */
+.card{
+  background:rgba(255,255,255,0.06);
+  border-radius:15px;
+  overflow:hidden;
+  backdrop-filter:blur(12px);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:18px;
+}
+
+.card-content h3{
+  margin:0;
+}
+
+.price{
+  color:#00e5ff;
+  font-size:20px;
+  margin:10px 0;
+  font-weight:600;
+}
+
+.card-content button{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:#00e5ff;
+  color:#000;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.card-content button:hover{
+  background:#00bcd4;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <h2>The Entity Solutions</h2>
+  <div>
+    <a href="home.html">Home</a>
+    <a href="home.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="cart.html">Cart</a>
+  </div>
+</nav>
+
+<div class="header">
+  <h1>Computer Equipment Catalogue</h1>
+  <p>Quality hardware for business, students, and professionals.</p>
+</div>
+
+<div class="filters">
+  <button onclick="filterItems('all')">All</button>
+  <button onclick="filterItems('laptop')">Laptops</button>
+  <button onclick="filterItems('desktop')">Desktops</button>
+  <button onclick="filterItems('accessory')">Accessories</button>
+</div>
+
+<div class="grid" id="productGrid">
+
+  <!-- LAPTOP -->
+  <div class="card laptop">
+    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="">
+    <div class="card-content">
+      <h3>Dell Latitude 5420</h3>
+      <div class="price">R8,999</div>
+      <button onclick="addToCart('Dell Latitude 5420', 8999)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- LAPTOP -->
+  <div class="card laptop">
+    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt="">
+    <div class="card-content">
+      <h3>HP ProBook 450</h3>
+      <div class="price">R7,850</div>
+      <<button onclick="addToCart('HP Probook 450', 8999)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- DESKTOP -->
+  <div class="card desktop">
+    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7" alt="">
+    <div class="card-content">
+      <h3>Lenovo ThinkCentre</h3>
+      <div class="price">R6,499</div>
+      <button onclick="addToCart('Lenovo ThinkCentre', 8999)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- MONITOR -->
+  <div class="card accessory">
+    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf" alt="">
+    <div class="card-content">
+      <h3>24" Full HD Monitor</h3>
+      <div class="price">R2,199</div>
+      <button onclick="addToCart('24" Full HD Monitor', 8999)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- ACCESSORY -->
+  <div class="card accessory">
+    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04" alt="">
+    <div class="card-content">
+      <h3>Wireless Keyboard & Mouse</h3>
+      <div class="price">R499</div>
+      <button onclick="addToCart('Wireless Keyboard & Mouse', 8999)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- ACCESSORY -->
+  <div class="card accessory">
+    <img src="https://images.unsplash.com/photo-1580894908361-967195033215" alt="">
+    <div class="card-content">
+      <h3>External Hard Drive 1TB</h3>
+      <div class="price">R1,099</div>
+      <button onclick="addToCart('External Hardrive', 8999)">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function filterItems(category){
+  let items = document.querySelectorAll('.card');
+  items.forEach(item=>{
+    if(category === 'all'){
+      item.style.display='block';
+    } else {
+      item.style.display = item.classList.contains(category) ? 'block' : 'none';
+    }
+  });
+}
+</script>
+  <script>
+function addToCart(name, price){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({name, price});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Item added to cart!");
+}
+</script>
+<script>
+// Disable right click
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener("keydown", function(e){
+  if (
+    e.keyCode == 123 || // F12
+    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
+    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
+    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
+</body>
+</html>
