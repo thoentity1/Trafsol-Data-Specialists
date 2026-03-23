@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Computer Equipment | The Entity Solutions</title>
+<title>Catalogue | Trafsol Data Specialists</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 body{
   margin:0;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg,#020617,#0f172a,#020617);
   color:white;
 }
 
@@ -20,243 +21,217 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 8%;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
+  padding:20px 10%;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top:0;
 }
 
-nav h2{
-  color:#00e5ff;
-}
+nav h2{ color:#06b6d4; }
 
 nav a{
   color:white;
   text-decoration:none;
   margin-left:25px;
-  font-weight:500;
+  transition:0.3s;
 }
 
-/* HEADER */
-.header{
+nav a:hover{ color:#06b6d4; }
+
+/* HERO */
+.hero{
   text-align:center;
-  padding:60px 20px 30px;
+  padding:70px 20px;
 }
 
-.header h1{
+.hero h1{
   font-size:40px;
-  margin-bottom:10px;
 }
 
-.header p{
-  opacity:0.85;
+.hero p{
+  color:#94a3b8;
 }
 
-/* FILTER BUTTONS */
-.filters{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.filters button{
-  padding:10px 18px;
-  margin:6px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-  background:#00e5ff;
-  color:#000;
-  font-weight:600;
-  transition:0.3s;
-}
-
-.filters button:hover{
-  background:#00bcd4;
-}
-
-/* PRODUCT GRID */
-.grid{
+/* GRID */
+.catalogue{
+  max-width:1200px;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap:25px;
-  padding:0 8% 60px;
+  padding:20px;
 }
 
-/* PRODUCT CARD */
+/* CARD */
 .card{
-  background:rgba(255,255,255,0.06);
+  background:#0f172a;
   border-radius:15px;
-  overflow:hidden;
-  backdrop-filter:blur(12px);
+  padding:25px;
   transition:0.3s;
+  box-shadow:0 0 20px rgba(6,182,212,0.15);
 }
 
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
+  background:#111827;
 }
 
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
+.card h3{
+  color:#22d3ee;
+  margin-bottom:10px;
 }
 
-.card-content{
-  padding:18px;
+.card p{
+  color:#cbd5e1;
+  font-size:14px;
+  line-height:1.6;
 }
 
-.card-content h3{
-  margin:0;
-}
-
+/* PRICE */
 .price{
-  color:#00e5ff;
-  font-size:20px;
-  margin:10px 0;
-  font-weight:600;
+  margin:15px 0;
+  font-size:22px;
+  font-weight:bold;
+  color:#06b6d4;
 }
 
-.card-content button{
-  width:100%;
-  padding:10px;
-  border:none;
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 20px;
   border-radius:8px;
-  background:#00e5ff;
-  color:#000;
+  background:#06b6d4;
+  color:#020617;
+  text-decoration:none;
   font-weight:600;
-  cursor:pointer;
 }
 
-.card-content button:hover{
-  background:#00bcd4;
+.btn:hover{
+  background:#22d3ee;
 }
+
+/* SECTION TITLE */
+.section-title{
+  text-align:center;
+  margin-top:50px;
+  font-size:28px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#94a3b8;
+}
+
 </style>
+
+<script>
+// Disable right click
+document.addEventListener("contextmenu", e => e.preventDefault());
+</script>
+
 </head>
+
 <body>
 
 <nav>
-  <h2>The Entity Solutions</h2>
+  <h2>Trafsol</h2>
   <div>
-    <a href="home.html">Home</a>
-    <a href="home.html">Services</a>
+    <a href="index.html">Home</a>
+    <a href="home.html#services">Services</a>
     <a href="pricing.html">Pricing</a>
-    <a href="catalogue.html">Catalogue</a>
-    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
   </div>
 </nav>
 
-<div class="header">
-  <h1>Computer Equipment Catalogue</h1>
-  <p>Quality hardware for business, students, and professionals.</p>
-</div>
+<section class="hero">
+  <h1>Service Catalogue</h1>
+  <p>Explore our data-driven solutions designed to power your business growth.</p>
+</section>
 
-<div class="filters">
-  <button onclick="filterItems('all')">All</button>
-  <button onclick="filterItems('laptop')">Laptops</button>
-  <button onclick="filterItems('desktop')">Desktops</button>
-  <button onclick="filterItems('accessory')">Accessories</button>
-</div>
+<!-- DATA ANALYTICS -->
+<h2 class="section-title">Data Analytics</h2>
 
-<div class="grid" id="productGrid">
+<div class="catalogue">
 
-  <!-- LAPTOP -->
-  <div class="card laptop">
-    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="">
-    <div class="card-content">
-      <h3>Dell Latitude 5420</h3>
-      <div class="price">R8,999</div>
-      <button onclick="addToCart('Dell Latitude 5420', 8999)">Add to Cart</button>
-    </div>
+  <div class="card">
+    <h3>📊 Data Analysis</h3>
+    <p>Transform raw data into actionable insights and reports.</p>
+    <div class="price">From R2 500</div>
+    <a href="contact.html?service=Data Analysis" class="btn">Request Service</a>
   </div>
 
-  <!-- LAPTOP -->
-  <div class="card laptop">
-    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt="">
-    <div class="card-content">
-      <h3>HP ProBook 450</h3>
-      <div class="price">R7,850</div>
-      <<button onclick="addToCart('HP Probook 450', 8999)">Add to Cart</button>
-    </div>
+  <div class="card">
+    <h3>📈 Business Intelligence</h3>
+    <p>Interactive dashboards using Power BI or Tableau.</p>
+    <div class="price">From R6 500</div>
+    <a href="contact.html?service=BI" class="btn">Request Service</a>
   </div>
 
-  <!-- DESKTOP -->
-  <div class="card desktop">
-    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7" alt="">
-    <div class="card-content">
-      <h3>Lenovo ThinkCentre</h3>
-      <div class="price">R6,499</div>
-      <button onclick="addToCart('Lenovo ThinkCentre', 8999)">Add to Cart</button>
-    </div>
-  </div>
-
-  <!-- MONITOR -->
-  <div class="card accessory">
-    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf" alt="">
-    <div class="card-content">
-      <h3>24" Full HD Monitor</h3>
-      <div class="price">R2,199</div>
-      <button onclick="addToCart('24" Full HD Monitor', 8999)">Add to Cart</button>
-    </div>
-  </div>
-
-  <!-- ACCESSORY -->
-  <div class="card accessory">
-    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04" alt="">
-    <div class="card-content">
-      <h3>Wireless Keyboard & Mouse</h3>
-      <div class="price">R499</div>
-      <button onclick="addToCart('Wireless Keyboard & Mouse', 8999)">Add to Cart</button>
-    </div>
-  </div>
-
-  <!-- ACCESSORY -->
-  <div class="card accessory">
-    <img src="https://images.unsplash.com/photo-1580894908361-967195033215" alt="">
-    <div class="card-content">
-      <h3>External Hard Drive 1TB</h3>
-      <div class="price">R1,099</div>
-      <button onclick="addToCart('External Hardrive', 8999)">Add to Cart</button>
-    </div>
+  <div class="card">
+    <h3>📉 Predictive Analytics</h3>
+    <p>Forecast trends using AI and statistical models.</p>
+    <div class="price">From R12 000</div>
+    <a href="contact.html?service=Predictive" class="btn">Request Service</a>
   </div>
 
 </div>
 
-<script>
-function filterItems(category){
-  let items = document.querySelectorAll('.card');
-  items.forEach(item=>{
-    if(category === 'all'){
-      item.style.display='block';
-    } else {
-      item.style.display = item.classList.contains(category) ? 'block' : 'none';
-    }
-  });
-}
-</script>
-  <script>
-function addToCart(name, price){
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push({name, price});
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Item added to cart!");
-}
-</script>
-<script>
-// Disable right click
-document.addEventListener("contextmenu", function(e){
-  e.preventDefault();
-});
+<!-- DATA ENGINEERING -->
+<h2 class="section-title">Data Engineering</h2>
 
-// Disable keyboard shortcuts
-document.addEventListener("keydown", function(e){
-  if (
-    e.keyCode == 123 || // F12
-    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
-    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
-    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
-  ) {
-    e.preventDefault();
-  }
-});
-</script>
+<div class="catalogue">
+
+  <div class="card">
+    <h3>⚙️ Data Cleaning</h3>
+    <p>Fix missing, duplicate, and inconsistent data.</p>
+    <div class="price">From R1 500</div>
+    <a href="contact.html?service=Cleaning" class="btn">Request Service</a>
+  </div>
+
+  <div class="card">
+    <h3>🔗 Data Integration</h3>
+    <p>Combine multiple data sources into one system.</p>
+    <div class="price">From R5 000</div>
+    <a href="contact.html?service=Integration" class="btn">Request Service</a>
+  </div>
+
+  <div class="card">
+    <h3>🧱 Data Pipelines</h3>
+    <p>Build ETL pipelines for scalable data processing.</p>
+    <div class="price">From R10 000</div>
+    <a href="contact.html?service=Pipelines" class="btn">Request Service</a>
+  </div>
+
+</div>
+
+<!-- AI & AUTOMATION -->
+<h2 class="section-title">AI & Automation</h2>
+
+<div class="catalogue">
+
+  <div class="card">
+    <h3>🤖 Process Automation</h3>
+    <p>Automate repetitive business tasks using smart systems.</p>
+    <div class="price">From R4 000</div>
+    <a href="contact.html?service=Automation" class="btn">Request Service</a>
+  </div>
+
+  <div class="card">
+    <h3>🧠 AI Solutions</h3>
+    <p>Custom AI models for business intelligence and insights.</p>
+    <div class="price">From R15 000</div>
+    <a href="contact.html?service=AI" class="btn">Request Service</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Trafsol Data Specialists • Data • Intelligence • Growth
+</footer>
+
 </body>
 </html>
