@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart | The Entity Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-inner {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #5ee7df;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-menu li {
+  display: inline-block;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 30px;
+  font-weight: 500;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #5ee7df;
+}
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    min-height:100vh;
+}
+
+h1{
+    text-align:center;
+    margin:40px 0;
+}
+
+.cart-container{
+    max-width:1000px;
+    margin:auto;
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.item-name{
+    font-weight:600;
+}
+
+.item-price{
+    color:#00e0ff;
+    font-weight:600;
+}
+
+.remove-btn{
+    background:#ff4d4d;
+    border:none;
+    padding:8px 15px;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+}
+
+.total{
+    text-align:right;
+    margin-top:20px;
+    font-size:22px;
+    font-weight:600;
+}
+
+.cart-actions{
+    margin-top:30px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.clear-btn{ background:#ff4d4d; color:white; }
+.checkout-btn{ background:#00e0ff; color:#00303f; }
+
+.empty{
+    text-align:center;
+    opacity:0.7;
+}
+</style>
+    <script>
+// Disable right click
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener("keydown", function(e){
+  if (
+    e.keyCode == 123 || // F12
+    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
+    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
+    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="logo">The Entity Solutions</div>
+
+    <nav>
+      <ul class="nav-menu">
+        <li>
+          <a href="catalogue.html">← Continue Shopping</a>
+        </li>
+        <li>
+          <a href="cart.html" class="active">
+            🛒 Cart (<span id="cart-count">0</span>)
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+</header>
+
+<h1>Your Shopping Cart</h1>
+
+<div class="cart-container" id="cartContainer"></div>
+
+<script>
+function loadCart(){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let container = document.getElementById("cartContainer");
+    container.innerHTML = "";
+
+    if(cart.length === 0){
+        container.innerHTML = "<p class='empty'>Your cart is empty.</p>";
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        container.innerHTML += `
+            <div class="cart-item">
+                <div>
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-price">R${item.price.toLocaleString()}</div>
+                </div>
+                <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+            </div>
+        `;
+    });
+
+    container.innerHTML += `
+        <div class="total">Total: R${total.toLocaleString()}</div>
+
+        <div class="cart-actions">
+            <button class="btn clear-btn" onclick="clearCart()">Clear Cart</button>
+            <button class="btn checkout-btn" onclick="goToContact()">Proceed to Checkout</button>
+        </div>
+    `;
+}
+
+function removeItem(index){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index,1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+    updateCartCount();
+}
+
+function clearCart(){
+    localStorage.removeItem("cart");
+    loadCart();
+    updateCartCount();
+}
+
+function goToContact(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if(cart.length === 0){
+    alert("Your cart is empty");
+    return;
+  }
+
+  let orderText = "🛒 Order Details:%0A%0A";
+  let total = 0;
+
+  cart.forEach(item => {
+    orderText += item.name + " - R" + item.price + "%0A";
+    total += item.price;
+  });
+
+  orderText += "%0A💰 Total: R" + total;
+
+  localStorage.setItem("orderMessage", orderText);
+  window.location.href = "contact.html";
+}
+
+function updateCartCount(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cart-count").textContent = cart.length;
+}
+
+loadCart();
+updateCartCount();
+</script>
+<script>
+function goToContact() {
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  let orderText = "Order Details:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    orderText += item.name + " - R" + item.price + "\n";
+    total += Number(item.price);
+  });
+
+  orderText += "\nTotal: R" + total;
+
+  // save order
+  localStorage.setItem("orderMessage", orderText);
+
+  // go to contact section
+  window.location.href = "home.html#contact";
+}
+</script>
+</body>
+</html>
