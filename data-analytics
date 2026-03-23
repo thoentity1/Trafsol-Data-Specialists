@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design & Branding | Trafsol Data Specialists</title>
+<title>Data Analytics | Trafsol Data Specialists</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -37,7 +37,6 @@ nav a{
   color:white;
   text-decoration:none;
   margin-left:25px;
-  font-weight:500;
   transition:0.3s;
 }
 
@@ -62,10 +61,10 @@ nav a:hover{
   margin:auto;
 }
 
-/* CONTENT CARD */
+/* CONTENT */
 
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:40px auto;
   padding:40px;
   background: rgba(255,255,255,0.05);
@@ -78,18 +77,13 @@ nav a:hover{
   color:#22d3ee;
 }
 
-.container p{
-  color:#e2e8f0;
-  line-height:1.8;
-}
-
-/* GRID SERVICES */
+/* GRID */
 
 .grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
   gap:20px;
-  margin-top:20px;
+  margin-top:25px;
 }
 
 .card{
@@ -100,22 +94,25 @@ nav a:hover{
 }
 
 .card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-6px);
   background:#111827;
 }
 
-/* CTA BUTTON */
+.card h4{
+  margin-bottom:10px;
+}
+
+/* CTA */
 
 .cta{
   display:inline-block;
-  margin-top:25px;
+  margin-top:30px;
   padding:14px 30px;
   border-radius:30px;
   background:#06b6d4;
   color:#020617;
   text-decoration:none;
   font-weight:600;
-  transition:0.3s;
 }
 
 .cta:hover{
@@ -139,7 +136,7 @@ document.addEventListener("contextmenu", function(e){
   e.preventDefault();
 });
 
-// Disable shortcuts
+// Disable dev tools shortcuts
 document.addEventListener("keydown", function(e){
   if (
     e.keyCode == 123 ||
@@ -153,6 +150,7 @@ document.addEventListener("keydown", function(e){
 </script>
 
 </head>
+
 <body>
 
 <nav>
@@ -165,53 +163,58 @@ document.addEventListener("keydown", function(e){
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Design & Branding</h1>
-  <p>We design modern data-driven interfaces and powerful brand identities for digital and analytics-focused businesses.</p>
+  <h1>Data Analytics</h1>
+  <p>
+    Unlock the power of your data with advanced analytics solutions that drive smarter decisions, improve performance, and accelerate growth.
+  </p>
 </section>
 
+<!-- CONTENT -->
 <div class="container">
 
-  <h3>What We Offer</h3>
+  <h3>Our Data Analytics Services</h3>
 
   <div class="grid">
 
     <div class="card">
-      <h4>📊 Dashboard UI Design</h4>
-      <p>Clean, modern dashboards for analytics platforms, Power BI, and data systems.</p>
+      <h4>📊 Data Analysis</h4>
+      <p>Transform raw data into meaningful insights to support strategic decision-making.</p>
     </div>
 
     <div class="card">
-      <h4>🎨 Brand Identity</h4>
-      <p>Professional logos, color systems, and visual identity tailored for tech companies.</p>
+      <h4>📈 Business Intelligence</h4>
+      <p>Build interactive dashboards and reports using tools like Power BI and Tableau.</p>
     </div>
 
     <div class="card">
-      <h4>📈 Data Visualisation Design</h4>
-      <p>Custom charts, reports, and data visuals that communicate insights clearly.</p>
+      <h4>🧮 Data Modelling</h4>
+      <p>Create structured data models to improve reporting accuracy and performance.</p>
     </div>
 
     <div class="card">
-      <h4>💼 Corporate Branding</h4>
-      <p>Business profiles, pitch decks, and corporate documents for enterprise clients.</p>
+      <h4>⚙️ Data Cleaning</h4>
+      <p>Ensure data quality by removing errors, duplicates, and inconsistencies.</p>
     </div>
 
     <div class="card">
-      <h4>🧠 UX/UI Strategy</h4>
-      <p>User-focused design to improve usability and engagement across platforms.</p>
+      <h4>🔗 Data Integration</h4>
+      <p>Combine data from multiple sources into a unified system for better insights.</p>
     </div>
 
     <div class="card">
-      <h4>🚀 Digital Product Design</h4>
-      <p>Design for SaaS platforms, apps, and data-driven systems.</p>
+      <h4>📉 Predictive Analytics</h4>
+      <p>Use historical data and AI models to forecast trends and future outcomes.</p>
     </div>
 
   </div>
 
   <h3>Why Choose Trafsol?</h3>
   <p>
-  At Trafsol Data Specialists, we combine data expertise with modern design to create powerful digital experiences. 
-  Our designs are not just visually appealing — they are built to improve usability, drive engagement, and support business growth.
+  At Trafsol Data Specialists, we turn complex data into clear, actionable insights. 
+  Our analytics solutions are designed to help businesses reduce risk, improve efficiency, 
+  and gain a competitive advantage in today’s data-driven world.
   </p>
 
   <a href="pricing.html" class="cta">View Pricing</a>
