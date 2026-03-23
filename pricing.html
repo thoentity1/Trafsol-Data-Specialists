@@ -3,28 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing | The Entity Solutions</title>
+<title>Pricing | Trafsol Data Specialists</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  background: linear-gradient(135deg, #33d2c9, #2bb6ff);
-  color: #0b1a2a;
-  padding: 14px 34px;
-  font-weight: 600;
-  border-radius: 30px;
-  transition: 0.3s ease;
-  box-shadow: 0 0 15px rgba(43, 182, 255, 0.35);
-}
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(43, 182, 255, 0.6);
-}
 body{
   margin:0;
   font-family:'Poppins', sans-serif;
@@ -33,7 +17,6 @@ body{
 }
 
 /* NAVBAR */
-
 nav{
   display:flex;
   justify-content:space-between;
@@ -45,32 +28,24 @@ nav{
   top:0;
 }
 
-nav h2{
-  color:#38bdf8;
-}
+nav h2{ color:#06b6d4; }
 
 nav a{
   color:white;
   text-decoration:none;
   margin-left:25px;
-  font-weight:500;
   transition:0.3s;
 }
 
-nav a:hover{
-  color:#38bdf8;
-}
+nav a:hover{ color:#06b6d4; }
 
 /* HERO */
-
 .hero{
   text-align:center;
   padding:70px 20px 30px;
 }
 
-.hero h1{
-  font-size:42px;
-}
+.hero h1{ font-size:42px; }
 
 .hero p{
   color:#cbd5e1;
@@ -78,16 +53,14 @@ nav a:hover{
   margin:auto;
 }
 
-/* SECTION TITLES */
-
+/* SECTION */
 .section-title{
   text-align:center;
   font-size:30px;
   margin-top:60px;
 }
 
-/* PRICING GRID */
-
+/* GRID */
 .pricing-grid{
   display:flex;
   justify-content:center;
@@ -101,8 +74,8 @@ nav a:hover{
   backdrop-filter: blur(12px);
   padding:40px 30px;
   border-radius:20px;
-  width:280px;
-  box-shadow:0 0 25px rgba(56,189,248,0.15);
+  width:300px;
+  box-shadow:0 0 25px rgba(6,182,212,0.2);
   transition:0.3s;
   position:relative;
   text-align:center;
@@ -112,40 +85,29 @@ nav a:hover{
   transform:translateY(-10px);
 }
 
-.price-card h3{
-  margin-bottom:10px;
-}
-
 .price-card h1{
-  color:#38bdf8;
-  margin:10px 0;
+  color:#22d3ee;
 }
 
-.price-card ul{
-  list-style:none;
-  padding:0;
-  line-height:1.9;
-  color:#e2e8f0;
-}
-
-.price-btn{
+/* BUTTON */
+.btn{
   display:inline-block;
   margin-top:20px;
   padding:12px 25px;
   border-radius:25px;
-  background:#38bdf8;
+  background:#06b6d4;
   color:#020617;
   text-decoration:none;
   font-weight:600;
-  transition:0.3s;
 }
 
-.price-btn:hover{
-  background:#0ea5e9;
+.btn:hover{
+  background:#22d3ee;
 }
 
+/* POPULAR */
 .popular{
-  border:2px solid #38bdf8;
+  border:2px solid #06b6d4;
   transform:scale(1.05);
 }
 
@@ -154,7 +116,7 @@ nav a:hover{
   top:-12px;
   left:50%;
   transform:translateX(-50%);
-  background:#38bdf8;
+  background:#06b6d4;
   color:#020617;
   padding:5px 12px;
   border-radius:20px;
@@ -163,233 +125,117 @@ nav a:hover{
 }
 
 /* FOOTER */
-
 footer{
   text-align:center;
-  padding:40px 20px;
+  padding:40px;
   color:#94a3b8;
-  margin-top:40px;
 }
 
 </style>
-  <script>
-// Disable right click
-document.addEventListener("contextmenu", function(e){
-  e.preventDefault();
-});
 
-// Disable keyboard shortcuts
+<script>
+// Disable right click
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+// Disable dev tools
 document.addEventListener("keydown", function(e){
   if (
-    e.keyCode == 123 || // F12
-    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
-    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
-    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
-  ) {
-    e.preventDefault();
-  }
+    e.keyCode == 123 ||
+    (e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+    (e.ctrlKey && e.keyCode == 85)
+  ) e.preventDefault();
 });
 </script>
+
 </head>
+
 <body>
 
 <nav>
-  <h2>The Entity Solutions</h2>
+  <h2>Trafsol</h2>
   <div>
     <a href="index.html">Home</a>
-    <a href="home.html#services">What we do</a>
+    <a href="home.html#services">Services</a>
     <a href="pricing.html">Pricing</a>
-    <a href="home.html#contact">Contact</a>
+    <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>Pricing Plans</h1>
-  <p>Transparent pricing tailored to help businesses grow online.</p>
+  <h1>Data Analytics Pricing</h1>
+  <p>Flexible pricing designed for businesses looking to unlock the power of data.</p>
 </section>
 
-<!-- WEB DEVELOPMENT -->
+<!-- DATA ANALYTICS -->
 
-<h2 class="section-title">Web Development</h2>
+<h2 class="section-title">Data Analytics Solutions</h2>
 
 <div class="pricing-grid">
 
+  <!-- STARTER -->
   <div class="price-card">
-    <h3>Web Development Starter</h3>
-    <h1>R1 500</h1>
+    <h3>Starter Analytics</h3>
+    <h1>R2 500</h1>
     <ul>
-      <li>1 Page Website</li>
-      <li>Mobile Responsive</li>
-      <li>Contact Form</li>
-      <li>Basic SEO</li>
+      <li>Basic Data Analysis</li>
+      <li>Data Cleaning</li>
+      <li>Simple Reports</li>
+      <li>Excel / CSV Insights</li>
     </ul>
-    <a href="home.html?plan=Starter" class="btn">Get Started</a>
+    <a href="contact.html?plan=Starter" class="btn">Get Started</a>
   </div>
 
+  <!-- BUSINESS -->
   <div class="price-card popular">
     <span class="badge">Most Popular</span>
-    <h3>Web Development Business</h3>
-    <h1>R3 500</h1>
-    <ul>
-      <li>Up to 5 Pages</li>
-      <li>Modern Design</li>
-      <li>WhatsApp Integration</li>
-      <li>Speed Optimised</li>
-      <li>SEO Setup</li>
-    </ul>
-    <a href="home.html?plan=Business" class="btn">Business Plan</a>
-  </div>
-
-  <div class="price-card">
-    <h3>Web Development Premium</h3>
+    <h3>Business Intelligence</h3>
     <h1>R6 500</h1>
     <ul>
-      <li>Unlimited Pages</li>
-      <li>E-commerce Ready</li>
-      <li>Booking System</li>
-      <li>Advanced SEO</li>
-      <li>Priority Support</li>
+      <li>Interactive Dashboard</li>
+      <li>Power BI / Tableau</li>
+      <li>Data Modelling</li>
+      <li>Performance Insights</li>
     </ul>
-    <a href="home.html?plan=WebDev-Premium" class="btn">Go Premium</a>
+    <a href="contact.html?plan=Business" class="btn">Choose Plan</a>
+  </div>
+
+  <!-- PREMIUM -->
+  <div class="price-card">
+    <h3>Advanced Analytics</h3>
+    <h1>R12 000</h1>
+    <ul>
+      <li>Predictive Analytics</li>
+      <li>Data Integration</li>
+      <li>Custom Dashboards</li>
+      <li>Automation & AI Insights</li>
+    </ul>
+    <a href="contact.html?plan=Advanced" class="btn">Go Premium</a>
   </div>
 
 </div>
 
-<!-- DESIGN & BRANDING -->
+<!-- ENTERPRISE -->
 
-<h2 class="section-title">Design & Branding</h2>
-
-<div class="pricing-grid">
-
-  <div class="price-card">
-    <h3>Design & Branding Logo Package</h3>
-    <h1>R900</h1>
-    <ul>
-      <li>Custom Logo</li>
-      <li>3 Concepts</li>
-      <li>High Resolution Files</li>
-      <li>Transparent PNG</li>
-    </ul>
-    <a href="home.html?plan=Order Logo" class="btn">Order Logo</a>
-  </div>
-
-  <div class="price-card popular">
-    <span class="badge">Best Value</span>
-    <h3>Design & Branding Brand Kit</h3>
-    <h1>R2 200</h1>
-    <ul>
-      <li>Logo Design</li>
-      <li>Color Palette</li>
-      <li>Typography Guide</li>
-      <li>Business Card Design</li>
-    </ul>
-    <a href="home.html?plan=Brand-Kit" class="btn">Launch My Brand</a>
-  </div>
-
-  <div class="price-card">
-    <h3>Design & Branding Full Branding</h3>
-    <h1>R4 500</h1>
-    <ul>
-      <li>Complete Brand Identity</li>
-      <li>Social Media Kit</li>
-      <li>Marketing Materials</li>
-      <li>Brand Guidelines</li>
-    </ul>
-    <a href="home.html?plan=Full Branding" class="btn">Full Branding</a>
-  </div>
-
-</div>
-
-<!-- SOCIAL MEDIA -->
-
-<h2 class="section-title">Social Media Management</h2>
+<h2 class="section-title">Enterprise Solutions</h2>
 
 <div class="pricing-grid">
 
   <div class="price-card">
-    <h3>Social Media Starter</h3>
-    <h1>R1 200/mo</h1>
+    <h3>Enterprise Custom</h3>
+    <h1>Custom Pricing</h1>
     <ul>
-      <li>8 Posts Monthly</li>
-      <li>Basic Graphics</li>
-      <li>Caption Writing</li>
+      <li>Full Data Architecture</li>
+      <li>ETL Pipelines</li>
+      <li>Real-time Dashboards</li>
+      <li>Ongoing Support</li>
     </ul>
-    <a href="home.html?plan=Starter" class="btn">Starter</a>
-  </div>
-
-  <div class="price-card popular">
-    <span class="badge">Most Popular</span>
-    <h3>Social Media Growth</h3>
-    <h1>R2 500/mo</h1>
-    <ul>
-      <li>20 Posts Monthly</li>
-      <li>Engagement Management</li>
-      <li>Hashtag Strategy</li>
-      <li>Analytics Report</li>
-    </ul>
-   <a href="home.html?plan=Social Media Growth" class="btn">Grow My Business</a>
-  </div>
-
-  <div class="price-card">
-    <h3>Social Media Premium</h3>
-    <h1>R4 500/mo</h1>
-    <ul>
-      <li>Full Management</li>
-      <li>Ad Campaign Setup</li>
-      <li>Content Strategy</li>
-      <li>Growth Optimization</li>
-    </ul>
-    <a href="home.html?plan=Social-media-Premium" class="btn">Go Premium</a>
-  </div>
-
-</div>
-
-<!-- SEO -->
-
-<h2 class="section-title">SEO Optimisation</h2>
-
-<div class="pricing-grid">
-
-  <div class="price-card">
-    <h3>SEO Optimisation Basic</h3>
-    <h1>R1 000</h1>
-    <ul>
-      <li>Website Audit</li>
-      <li>Keyword Setup</li>
-      <li>Meta Tag Optimization</li>
-    </ul>
-   <a href="home.html?plan=SEO-Basic" class="btn">Rank My Website</a>
-  </div>
-
-  <div class="price-card popular">
-    <span class="badge">Best Results</span>
-    <h3>SEO Optimisation Standard</h3>
-    <h1>R2 800</h1>
-    <ul>
-      <li>On-page Optimization</li>
-      <li>Keyword Strategy</li>
-      <li>Speed Optimization</li>
-      <li>Google Indexing</li>
-    </ul>
-    <a href="home.html?plan=SEO-Standard" class="btn">Grow My Rankings</a>
-  </div>
-
-  <div class="price-card">
-    <h3>SEO Optimisation Advanced</h3>
-    <h1>R5 000</h1>
-    <ul>
-      <li>Full SEO Setup</li>
-      <li>Local SEO</li>
-      <li>Backlink Strategy</li>
-      <li>Monthly Report</li>
-    </ul>
-   <a href="home.html?plan=Premium" class="btn">Go Premium</a>
+    <a href="contact.html" class="btn">Contact Us</a>
   </div>
 
 </div>
 
 <footer>
-  © 2026 The Entity Solutions • Empowering Businesses Online
+  © 2026 Trafsol Data Specialists • Data • Intelligence • Growth
 </footer>
 
 </body>
