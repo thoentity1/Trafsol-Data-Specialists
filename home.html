@@ -19,8 +19,8 @@ html{scroll-behavior:smooth;}
 }
 
 body{
-  background:#0b1f3a;
-  color:#ffffff;
+  background: linear-gradient(135deg,#020617,#0f172a,#020617);
+  color:#e2e8f0;
 }
 
 /* NAVBAR */
@@ -29,16 +29,16 @@ nav{
   position: sticky;
   top:0;
   width:100%;
-  background:#08172d;
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(12px);
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:16px 8%;
   z-index:999;
-  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-nav h2{color:#ffffff;}
+.logo img{height:55px;}
 
 nav ul{
   list-style:none;
@@ -48,10 +48,10 @@ nav ul{
 
 nav ul li a{
   text-decoration:none;
-  color:#dbeafe;
+  color:#e2e8f0;
 }
 
-nav ul li a:hover{color:#ffffff;}
+nav ul li a:hover{color:#22d3ee;}
 
 /* HERO */
 
@@ -61,26 +61,16 @@ nav ul li a:hover{color:#ffffff;}
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:linear-gradient(180deg,#0b1f3a,#08172d);
+  background: radial-gradient(circle at center, rgba(34,211,238,0.12), transparent 60%);
 }
 
-.hero h4{color:#93c5fd;}
-
-.hero h1{
-  font-size:64px;
-  color:#ffffff;
-}
-
-.hero p{
-  margin-top:15px;
-  color:#cbd5e1;
-}
-
-/* BUTTONS */
+.hero h4{color:#94a3b8;}
+.hero h1{font-size:64px;color:#67e8f9;}
+.hero p{margin-top:15px;color:#cbd5f5;}
 
 .btn{
   padding:12px 28px;
-  border-radius:6px;
+  border-radius:8px;
   text-decoration:none;
   margin:5px;
   font-weight:600;
@@ -88,22 +78,13 @@ nav ul li a:hover{color:#ffffff;}
 }
 
 .btn-outline{
-  border:1px solid #ffffff;
-  color:#ffffff;
-}
-
-.btn-outline:hover{
-  background:#ffffff;
-  color:#0b1f3a;
+  border:1px solid #22d3ee;
+  color:#22d3ee;
 }
 
 .btn-fill{
-  background:#ffffff;
-  color:#0b1f3a;
-}
-
-.btn-fill:hover{
-  background:#e2e8f0;
+  background:#22d3ee;
+  color:#02131f;
 }
 
 /* SERVICES */
@@ -111,38 +92,29 @@ nav ul li a:hover{color:#ffffff;}
 .services{
   text-align:center;
   padding:80px 10%;
-  background:#08172d;
 }
 
 .service{margin-bottom:60px;}
 
 .service img{
   width:60px;
-  filter: brightness(0) invert(1);
+  filter: drop-shadow(0 0 10px #22d3ee);
 }
 
-.service h3{color:#ffffff;}
-
-.service p{
-  color:#cbd5e1;
-  max-width:650px;
-  margin:auto;
-}
+.service h3{color:#a78bfa;}
+.service p{color:#94a3b8;max-width:650px;margin:auto;}
 
 /* ABOUT */
 
 .about{
   text-align:center;
   padding:90px 12%;
-  background:#0b1f3a;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
 }
 
-.about h2{color:#ffffff;margin-bottom:20px;}
-
-.about p{
-  color:#cbd5e1;
-  line-height:1.7;
-}
+.about h2{color:#22d3ee;margin-bottom:20px;}
+.about p{color:#cbd5f5;line-height:1.7;}
 
 /* CONTACT */
 
@@ -151,7 +123,6 @@ nav ul li a:hover{color:#ffffff;}
   flex-wrap:wrap;
   gap:40px;
   padding:70px 10%;
-  background:#08172d;
 }
 
 .contact-form{
@@ -164,18 +135,18 @@ nav ul li a:hover{color:#ffffff;}
   width:100%;
   padding:14px;
   margin-bottom:15px;
-  border-radius:6px;
-  background:#0b1f3a;
-  color:#ffffff;
-  border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;
+  background:#020617;
+  color:#e2e8f0;
+  border:1px solid rgba(34,211,238,0.2);
 }
 
 .contact-form button{
   padding:14px;
   border:none;
-  border-radius:6px;
-  background:#ffffff;
-  color:#0b1f3a;
+  border-radius:8px;
+  background:#22d3ee;
+  color:#02131f;
   font-weight:600;
   cursor:pointer;
 }
@@ -183,47 +154,43 @@ nav ul li a:hover{color:#ffffff;}
 .contact-info{
   flex:1;
   min-width:280px;
-  color:#cbd5e1;
+  color:#94a3b8;
 }
-
-/* FOOTER */
 
 footer{
   text-align:center;
   padding:25px;
-  color:#94a3b8;
-  background:#08172d;
+  color:#64748b;
 }
 
 </style>
-
-<script>
+  <script>
 // Disable right click
 document.addEventListener("contextmenu", function(e){
   e.preventDefault();
 });
 
-// Disable dev shortcuts
+// Disable keyboard shortcuts
 document.addEventListener("keydown", function(e){
   if (
-    e.keyCode == 123 ||
-    (e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
-    (e.ctrlKey && e.keyCode == 85) ||
-    (e.ctrlKey && e.shiftKey && e.keyCode == 74)
+    e.keyCode == 123 || // F12
+    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
+    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
+    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
   ) {
     e.preventDefault();
   }
 });
 </script>
-
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav>
-  <h2>Transfol Data Specialists</h2>
+  <h2 style="color:#22d3ee;">Transfol Data Specialists</h2>
+  </div>
   <ul>
-    <li><a href="#">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="#services">What We Do</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="catalogue.html">Catalogue</a></li>
@@ -237,10 +204,6 @@ document.addEventListener("keydown", function(e){
   <div>
     <h4>WE TRANSFORM DATA INTO</h4>
     <h1>SMART DECISIONS</h1>
-
-    <!-- TAGLINE -->
-    <p><strong>Where Digital Meets Business Scale & Growth</strong></p>
-
     <p>Advanced data analytics, business intelligence and solutions to help your business grow faster and smarter.</p>
 
     <a href="#services" class="btn btn-outline">Explore Services</a>
@@ -252,38 +215,93 @@ document.addEventListener("keydown", function(e){
 <section class="services" id="services">
 
   <div class="service">
-    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png">
-    <h3>Data Analytics</h3>
-    <p>Transform raw data into actionable insights to drive smarter business decisions.</p>
+    <a href="data-analytics.html" class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" alt="Data Analytics">
+      <h3>Data Analytics</h3>
+      <p>Transform raw data into actionable insights to drive smarter business decisions.</p>
+    </a>
   </div>
 
   <div class="service">
-    <img src="https://cdn-icons-png.flaticon.com/512/906/906175.png">
-    <h3>Business Intelligence</h3>
-    <p>Interactive dashboards and reports using Power BI and Tableau.</p>
+    <a href="business-intelligence.html" class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/906/906175.png" alt="Business Intelligence">
+      <h3>Business Intelligence</h3>
+      <p>Interactive dashboards and reports using Power BI and Tableau for real-time insights.</p>
+    </a>
   </div>
 
   <div class="service">
-    <img src="https://cdn-icons-png.flaticon.com/512/4149/4149648.png">
-    <h3>Data Engineering</h3>
-    <p>Build scalable data pipelines and systems.</p>
+    <a href="data-engineering.html" class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4149/4149648.png" alt="Data Engineering">
+      <h3>Data Engineering</h3>
+      <p>Build and optimise data pipelines, ETL processes, and scalable data systems.</p>
+    </a>
+  </div>
+  
+  <div class="service">
+    <a href="data-visualisation.html" class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Data Visualisation">
+      <h3>Data Visualisation</h3>
+      <p>Create powerful visual reports and dashboards that make data easy to understand.</p>
+    </a>
+  </div>
+
+  <div class="service">
+    <a href="data-quality.html" class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Data Quality & Testing">
+      <h3>Data Quality & Testing</h3>
+      <p>Ensure data accuracy, integrity, and reliability through advanced testing and validation.</p>
+    </a>
   </div>
 
 </section>
 
-<!-- ABOUT -->
+</section>
+
 <section class="about" id="about">
 
-  <h2>About Us</h2>
+  <div class="about-container">
 
-  <p>
-    Transfol Data Specialists is a forward-thinking data solutions company helping businesses unlock the power of data.
-  </p>
+    <h2>About Trafsol Data Specialists</h2>
+
+    <p>
+      Trafsol Data Specialists is a forward-thinking data solutions company focused on transforming raw data into powerful business intelligence. We help organisations unlock the full potential of their data through advanced analytics, automation, and innovative digital solutions.
+    </p>
+
+    <p>
+      Our expertise spans across data analytics, business intelligence, data engineering, and AI-driven systems. We work with businesses of all sizes to improve decision-making, optimise performance, and drive sustainable growth.
+    </p>
+
+    <p>
+      At Trafsol, we believe that data is more than just numbers — it is a strategic asset. Our mission is to empower companies with accurate insights, scalable systems, and smart technology that delivers real results.
+    </p>
+
+    <!-- Highlights -->
+    <div class="about-highlights">
+
+      <div class="highlight">
+        <h3>📊 Data-Driven</h3>
+        <p>We turn complex data into clear, actionable insights.</p>
+      </div>
+
+      <div class="highlight">
+        <h3>⚙️ Scalable Solutions</h3>
+        <p>Our systems are built to grow with your business.</p>
+      </div>
+
+      <div class="highlight">
+        <h3>🚀 Innovation Focused</h3>
+        <p>We leverage automation to stay ahead of the curve.</p>
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section id="contact">
 
   <div class="contact-form">
     <h2>Get In Touch</h2>
@@ -291,41 +309,113 @@ document.addEventListener("keydown", function(e){
     <input type="text" id="name" placeholder="Name *">
     <input type="text" id="phone" placeholder="Phone *">
     <input type="email" id="email" placeholder="Email *">
-    <textarea id="customerMessage" placeholder="Your Message"></textarea>
+    <textarea id="customerMessage" rows="6" placeholder="Your Message"></textarea>
 
+<label>🛒 Order Details</label>
+<textarea id="orderDetails" readonly></textarea>
+
+<!-- ✅ ADD DELIVERY FIELD HERE -->
+<label for="delivery">Delivery Address</label>
+<textarea id="delivery" name="delivery" placeholder="Enter delivery address" required></textarea>
     <button onclick="sendWhatsApp()">Send Message</button>
   </div>
 
   <div class="contact-info">
-    <p>📧 ADMIN@TRAFSOLSA.CO.ZA</p>
+    <p>📧  ADMIN@TRAFSOLSA.CO ZA </p>
+<p> Director: MAGMOED@TRAFSOLSA.CO.ZA <p>
     <p>📞 071 770 9430</p>
-    <p>📍 South Africa</p>
+    <p>📍 45 COTSWOLD ROAD FLORIDA HILLS, South Africa</p>
   </div>
 
 </section>
 
 <footer>
-© 2026 Transfol Data Specialists
+© 2026 Trafsol Data Specialists
 </footer>
 
 <script>
 function sendWhatsApp() {
+
   var name = document.getElementById("name").value;
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
   var message = document.getElementById("customerMessage").value;
+  var order = document.getElementById("orderDetails").value;
+  var delivery = document.getElementById("delivery").value;
 
   if(name === "" || phone === "" || email === ""){
     alert("Please fill in all required fields.");
     return;
   }
 
-  var url = "https://wa.me/27717709430?text=" +
-    encodeURIComponent("Name: "+name+"\nPhone: "+phone+"\nEmail: "+email+"\nMessage: "+message);
+  var whatsappNumber = "27717709430";
+
+  var text =
+    "Client Request:\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n\n" +
+    "Order Details:\n" + order + "\n\n" +
+    "Delivery Address:\n" + delivery + "\n\n" +
+    "Message:\n" + message;
+
+  var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
 
   window.open(url, "_blank");
+
+  // clear cart after sending
+  localStorage.removeItem("cart");
+  localStorage.removeItem("orderMessage");
 }
 </script>
+
+}
+<script>
+window.onload = function () {
+
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get("plan");
+
+  if(plan){
+    
+    // scroll to contact section
+    document.getElementById("contact").scrollIntoView({
+      behavior: "smooth"
+    });
+
+    // autofill message
+    document.getElementById("message").value =
+      "Hi, I'm interested in the " + plan + " plan. Please contact me.";
+
+  }
+
+};
+</script>
+ <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  // Autofill selected plan
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get("plan");
+
+  if(plan){
+    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+    document.getElementById("customerMessage").value =
+      "Hi, I'm interested in the " + plan + " plan.";
+  }
+
+  // Autofill cart order
+  const order = localStorage.getItem("orderMessage");
+
+  if(order && document.getElementById("orderDetails")){
+    document.getElementById("orderDetails").value = order;
+    localStorage.removeItem("orderMessage");
+  }
+
+});
+</script>
+
+
 
 </body>
 </html>
