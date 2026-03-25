@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart – AfterGlow Gifts</title>
+  <title>Cart – Trafsol Data Specialists</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
     body {
@@ -75,6 +75,25 @@
       color: #FFD700;
     }
   </style>
+  <script>
+// Disable right click
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
+// Disable key shortcuts
+document.addEventListener("keydown", function(e){
+  if (
+    e.keyCode == 123 || // F12
+    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
+    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
+    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
+
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     emailjs.init("R8YQ6uFuEg24lKXoj");
@@ -85,8 +104,8 @@
     <a href="index.html"><img src="Logo_Image.jpg" alt="Logo"></a>
     <div>
       <a href="index.html">Home</a>
-      <a href="retail.html">Retail</a>
-      <a href="delivery.html">Delivery & Contact</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="index.html">Contact</a>
            
     </div>
   </nav>
