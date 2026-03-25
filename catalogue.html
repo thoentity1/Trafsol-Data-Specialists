@@ -2,243 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catalogue – Trafsol Data Specialists</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #cfa85c;
-    }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background: #000;
-      border-bottom: 2px solid #8B0000;
-    }
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    .navbar a {
-      color: #cfa85c;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+  <!-- EXTERNAL CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    .navbar img {
-      height: 50px;
-      border-radius: 8px;
-    }
-
-    .cart {
-      background: #111;
-      border: 2px solid #cfa85c;
-      padding: 8px 12px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    .section-heading {
-      text-align: center;
-      font-size: 1.8rem;
-      margin: 40px 0 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #8B0000;
-    }
-
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 0 20px 40px;
-    }
-
-    .product-card {
-      background: #111;
-      border: 1px solid #8B0000;
-      border-radius: 10px;
-      width: 260px;
-      padding: 15px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 220px;
-      overflow: hidden;
-    }
-
-    .carousel img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: none;
-      border-radius: 8px;
-    }
-
-    .carousel img.active {
-      display: block;
-    }
-
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: #FFD700;
-      padding: 6px 12px;
-      border-radius: 50%;
-      font-weight: bold;
-      font-size: 18px;
-      user-select: none;
-    }
-
-    .prev { left: 8px; }
-    .next { right: 8px; }
-
-    .button {
-      background: #8B0000;
-      color: #FFD700;
-      padding: 8px 16px;
-      border: 2px solid #FFD700;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 100%;
-    }
-  </style>
-  </head>
 <body>
-  <nav class="navbar">
-    <a href="Trafsol Data Specialists"></a>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="catalogue.html">Catalogue</a>
-      <a href="cart.html">Cart</a>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2 style="color:#22d3ee;">Trafsol Data Specialists</h2>
+
+  <div>
+    <a href="index.html">Home</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="cart.html">Cart</a>
+  </div>
+
+  <div>
+    <a href="cart.html" class="cart">🛒 Cart (<span id="cart-count">0</span>)</a>
+    <button id="clear-cart" class="button">Clear</button>
+  </div>
+</nav>
+
+<!-- TITLE -->
+<h2 class="section-heading">Data Packs</h2>
+<div class="product-grid" id="sensual-grid"></div>
+
+<h2 class="section-heading">Analytics Boxes</h2>
+<div class="product-grid" id="breakup-grid"></div>
+
+<h2 class="section-heading">Data Specials</h2>
+<div class="product-grid" id="dom-grid"></div>
+
+<script>
+const slideIndices = {};
+
+// CAROUSEL
+function changeSlide(group, n) {
+  const carousel = document.querySelector(`.carousel[data-group="${group}"]`);
+  const images = carousel.querySelectorAll('img');
+
+  if (!slideIndices[group]) slideIndices[group] = 0;
+
+  slideIndices[group] = (slideIndices[group] + n + images.length) % images.length;
+
+  images.forEach((img, i) => {
+    img.classList.toggle('active', i === slideIndices[group]);
+  });
+}
+
+// CART COUNT
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  document.getElementById('cart-count').textContent = cart.length;
+}
+
+// ADD TO CART
+function addToCart(name, price) {
+  const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  cart.push({ name, price });
+  localStorage.setItem('cartItems', JSON.stringify(cart));
+  updateCartCount();
+  alert(name + " added to cart!");
+}
+
+// LOAD PAGE
+document.addEventListener('DOMContentLoaded', () => {
+
+  updateCartCount();
+
+  const products = [
+    { group: 1, name: "Data Analysis", desc: "Transform raw data into insights.", price: "2500", images: ["1.jpg","2.jpg","3.jpg"] },
+    { group: 2, name: "Business Intelligence", desc: "Dashboards with Power BI/Tableau.", price: "6500", images: ["1.jpg","2.jpg","3.jpg"] },
+    { group: 3, name: "Predictive Analytics", desc: "AI-powered forecasting models.", price: "12000", images: ["1.jpg","2.jpg","3.jpg"] },
+
+    { group: 4, name: "Data Engineering", desc: "Build scalable pipelines.", price: "5000", images: ["1.jpg","2.jpg","3.jpg"] },
+    { group: 5, name: "Automation Systems", desc: "Automate workflows.", price: "4000", images: ["1.jpg","2.jpg","3.jpg"] },
+    { group: 6, name: "Reporting Tools", desc: "Custom business reports.", price: "3000", images: ["1.jpg","2.jpg","3.jpg"] },
+
+    { group: 7, name: "Starter Pack", desc: "Basic analytics setup.", price: "2000", images: ["1.jpg","2.jpg","3.jpg"] },
+    { group: 8, name: "Pro Pack", desc: "Advanced analytics + dashboards.", price: "8000", images: ["1.jpg","2.jpg","3.jpg"] },
+    { group: 9, name: "Enterprise Pack", desc: "Full data solution suite.", price: "15000", images: ["1.jpg","2.jpg","3.jpg"] },
+  ];
+
+  const grids = {
+    1: document.getElementById('sensual-grid'),
+    2: document.getElementById('sensual-grid'),
+    3: document.getElementById('sensual-grid'),
+
+    4: document.getElementById('breakup-grid'),
+    5: document.getElementById('breakup-grid'),
+    6: document.getElementById('breakup-grid'),
+
+    7: document.getElementById('dom-grid'),
+    8: document.getElementById('dom-grid'),
+    9: document.getElementById('dom-grid')
+  };
+
+  products.forEach(prod => {
+
+    const images = prod.images.map((img, i) =>
+      `<img src="images/${img}" class="${i === 0 ? 'active' : ''}">`
+    ).join('');
+
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    card.innerHTML = `
+      <div class="carousel" data-group="${prod.group}">
+        ${images}
+        <span class="prev" onclick="changeSlide(${prod.group}, -1)">❮</span>
+        <span class="next" onclick="changeSlide(${prod.group}, 1)">❯</span>
       </div>
-    <div class="navbar-controls">
-      <a href="cart.html" class="cart">🛒 Cart (<span id="cart-count">0</span>)</a>
-      <button id="clear-cart" class="button">Clear Cart</button>
-    </div>
-  </nav>
 
-  <h2 class="section-heading">Data Packs</h2>
-  <div class="product-grid" id="sensual-grid"></div>
+      <h3>${prod.name}</h3>
+      <p>${prod.desc}</p>
+      <div class="price">From R${prod.price}</div>
 
-  <h2 class="section-heading">Analytics Boxes</h2>
-  <div class="product-grid" id="breakup-grid"></div>
+      <button class="button" onclick="addToCart('${prod.name}', '${prod.price}')">
+        Request Service
+      </button>
+    `;
 
-  <h2 class="section-heading">Data Specials</h2>
-  <div class="product-grid" id="dom-grid"></div>
+    grids[prod.group].appendChild(card);
+  });
 
-  <script>
-    const slideIndices = {};
+  // CLEAR CART
+  document.getElementById('clear-cart').addEventListener('click', () => {
+    localStorage.removeItem('cartItems');
+    updateCartCount();
+    alert("Cart cleared");
+  });
 
-    function changeSlide(group, n) {
-      const carousel = document.querySelector(`.carousel[data-group="${group}"]`);
-      const images = carousel.querySelectorAll('img');
-      if (!slideIndices[group]) slideIndices[group] = 0;
-      slideIndices[group] = (slideIndices[group] + n + images.length) % images.length;
-      images.forEach((img, i) => img.classList.toggle('active', i === slideIndices[group]));
-    }
+});
+</script>
 
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
-      document.getElementById('cart-count').textContent = cart.length;
-    }
-
-    function addToCart(name, price) {
-      const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
-      cart.push({ name, price });
-      localStorage.setItem('cartItems', JSON.stringify(cart));
-      updateCartCount();
-      alert(`${name} added to cart!`);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      updateCartCount();
-
-      const products = [
-        { group: 1, name: "Midnight Halaal Beverage Pack", desc: "Chocolate vibe pack, massage candle & snack bundle.", price: "499.00", images: ["", "AfterGlow_Massage_Candle.jpg", "Snacks.jpg"] },
-        { group: 2, name: "", desc: ".", price: "499.00", images: ["", "Snacks.jpg", ""] },
-        { group: 3, name: "Sweets", desc: "Candy and oil.", price: "399.00", images: ["", "oil.jpg", "Snacks.jpg"] },
-        { group: 4, name: "", desc: "", price: "499.00", images: ["", "Snacks.jpg", ""] },
-        { group: 5, name: "", desc: "", price: "499.00", images: ["", "Snacks.jpg", ""] },
-        { group: 6, name: "", desc: "", price: "599.00", images: ["", "Snacks.jpg", ""] },
-        { group: 7, name: "Ragdoll Female Kitty", desc: "", price: "1000.00", images: ["", "", ""] },
-        { group: 8, name: "Ragdoll Male Kitty", desc: "", price: "1000.00", images: ["", "Candles.jpg", "Snacks.jpg"] },
-        { group: 9, name: "Home sweet home pack", desc: "", price: "1000.00", images: ["Kitty litter.jpg", "Food 10kg.jpg", "Food & Water Bowls.jpg"] },
-      ];
-
-      const grids = {
-        1: document.getElementById('sensual-grid'),
-        2: document.getElementById('sensual-grid'),
-        3: document.getElementById('sensual-grid'),
-        4: document.getElementById('breakup-grid'),
-        5: document.getElementById('breakup-grid'),
-        6: document.getElementById('breakup-grid'),
-        7: document.getElementById('dom-grid'),
-        8: document.getElementById('dom-grid'),
-        9: document.getElementById('dom-grid')
-      };
-
-      products.forEach(prod => {
-        const imageTags = prod.images.map((img, i) => `<img src="images/${img}" class="${i === 0 ? 'active' : ''}" />`).join('');
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <div class="carousel" data-group="${prod.group}">
-            ${imageTags}
-            <span class="prev" onclick="changeSlide(${prod.group}, -1)">❮</span>
-            <span class="next" onclick="changeSlide(${prod.group}, 1)">❯</span>
-          </div>
-          <h3>${prod.name}</h3>
-          <p>${prod.desc}</p>
-          <div class="price">R${prod.price}</div>
-          <button class="button" onclick="addToCart('${prod.name}', '${prod.price}')">Add to Cart</button>
-        `;
-        grids[prod.group].appendChild(card);
-      });
-
-      document.getElementById('clear-cart').addEventListener('click', () => {
-        localStorage.removeItem('cartItems');
-        updateCartCount();
-        alert('Cart cleared');
-      });
-    });
-  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
