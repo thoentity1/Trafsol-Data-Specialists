@@ -8,7 +8,7 @@
   <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- EXTERNAL CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,8 +16,6 @@
 
 <!-- NAVBAR -->
 <nav>
-  
-  <nav>
   <h2 style="color:#22d3ee;">Trafsol Data Specialists</h2>
 
   <ul>
@@ -30,16 +28,11 @@
     <a href="cart.html" class="btn btn-outline">
       🛒 (<span id="cart-count">0</span>)
     </a>
-  </div>
-</nav>
-
-  <div>
-    <a href="cart.html" class="cart">🛒 Cart (<span id="cart-count">0</span>)</a>
     <button id="clear-cart" class="button">Clear</button>
   </div>
 </nav>
 
-<!-- TITLE -->
+<!-- SECTIONS -->
 <h2 class="section-heading">Data Packs</h2>
 <div class="product-grid" id="sensual-grid"></div>
 
@@ -97,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     { group: 7, name: "Starter Pack", desc: "Basic analytics setup.", price: "2000", images: ["1.jpg","2.jpg","3.jpg"] },
     { group: 8, name: "Pro Pack", desc: "Advanced analytics + dashboards.", price: "8000", images: ["1.jpg","2.jpg","3.jpg"] },
-    { group: 9, name: "Enterprise Pack", desc: "Full data solution suite.", price: "15000", images: ["1.jpg","2.jpg","3.jpg"] },
+    { group: 9, name: "Enterprise Pack", desc: "Full data solution suite.", price: "15000", images: ["1.jpg","2.jpg","3.jpg"] }
   ];
 
   const grids = {
@@ -135,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="price">From R${prod.price}</div>
 
       <button class="button" onclick="addToCart('${prod.name}', '${prod.price}')">
-        Add to cart
+        Add to Cart
       </button>
     `;
 
