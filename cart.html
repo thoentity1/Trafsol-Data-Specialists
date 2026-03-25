@@ -3,52 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Cart - Trafsol Data Specialists</title>
 
-    <!-- Link to shared CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">Trafsol Data Specialists</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Services</a>
+        <a href="#">Pricing</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+<!-- TITLE -->
+<h1 class="page-title">Your Cart</h1>
+
 <div class="container">
-    <h1 class="title">Your Cart</h1>
 
-    <div class="cart-item">
-        <span>Product 1</span>
-        <span>R500</span>
+    <div class="card">
+
+        <div class="cart-item">
+            <span>Data Analysis</span>
+            <span>R2 500</span>
+        </div>
+
+        <div class="cart-item">
+            <span>Business Intelligence</span>
+            <span>R6 500</span>
+        </div>
+
+        <div class="cart-item">
+            <span>Predictive Analytics</span>
+            <span>R12 000</span>
+        </div>
+
+        <div class="total">
+            Total: R21 000
+        </div>
+
+        <button class="btn" onclick="checkout()">
+            Checkout via WhatsApp
+        </button>
+
     </div>
 
-    <div class="cart-item">
-        <span>Product 2</span>
-        <span>R300</span>
-    </div>
-
-    <div class="cart-item">
-        <span>Product 3</span>
-        <span>R200</span>
-    </div>
-
-    <div class="total">
-        Total: R1000
-    </div>
-
-    <button class="btn" onclick="checkout()">
-        Checkout via WhatsApp
-    </button>
 </div>
 
 <script>
 function checkout() {
-    let message = "Hello, I would like to order:\n";
-    message += "- Product 1 (R500)\n";
-    message += "- Product 2 (R300)\n";
-    message += "- Product 3 (R200)\n";
-    message += "Total: R1000";
+    let message = "Hello, I would like to request the following services:%0A";
+    message += "- Data Analysis (R2 500)%0A";
+    message += "- Business Intelligence (R6 500)%0A";
+    message += "- Predictive Analytics (R12 000)%0A";
+    message += "Total: R21 000";
 
-    let phone = "27812345678";
-    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-
-    window.open(url, "_blank");
+    let phone = "27812345678"; // replace with your number
+    window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
 }
 </script>
 
