@@ -3,76 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart –Trafsol Data Specialists</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <title>Cart – Trafsol Data Specialists</title>
+  <link rel="stylesheet" href="style.css"/>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #000;
-      color: #cfa85c;
+      background: #000; /* dark background */
+      color: #ffffff;   /* main text white */
     }
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
       background: #000;
-      border-bottom: 2px solid #8B0000;
+      border-bottom: 2px solid #22d3ee; /* Trafsol blue */
     }
+
     .navbar a {
-      color: #cfa85c;
+      color: #22d3ee;
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
     }
+
     .navbar img {
       height: 50px;
       border-radius: 8px;
     }
+
     .section-heading {
       text-align: center;
       font-size: 1.8rem;
       margin: 30px 0 10px;
       padding-bottom: 10px;
-      border-bottom: 1px solid #8B0000;
+      border-bottom: 1px solid #22d3ee;
+      color: #22d3ee;
     }
+
     .cart-items, .delivery-form {
       max-width: 600px;
       margin: 20px auto;
       background: #111;
-      border: 1px solid #cfa85c;
+      border: 1px solid #22d3ee;
       padding: 20px;
       border-radius: 10px;
     }
+
     .cart-item {
-      border-bottom: 1px solid #8B0000;
+      border-bottom: 1px solid #22d3ee;
       padding: 10px 0;
       display: flex;
       justify-content: space-between;
+      color: #ffffff;
     }
+
     .button {
-      background: #8B0000;
-      color: #FFD700;
+      background: #22d3ee;
+      color: #000;
       padding: 10px 16px;
-      border: 2px solid #FFD700;
+      border: 2px solid #22d3ee;
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
       margin-top: 10px;
       width: 100%;
+      transition: 0.3s;
     }
+
+    .button:hover {
+      background: #ffffff;
+      color: #22d3ee;
+    }
+
     label {
       margin-top: 10px;
+      display: block;
+      color: #22d3ee;
     }
+
     input, textarea {
       width: 100%;
       padding: 8px;
       margin-top: 4px;
       border-radius: 6px;
-      border: 1px solid #cfa85c;
+      border: 1px solid #22d3ee;
       background: #222;
-      color: #FFD700;
+      color: #ffffff;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #22d3ee;
+      opacity: 0.8;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -87,7 +111,6 @@
       <a href="index.html">Home</a>
       <a href="catalogue.html">Catalogue</a>
       <a href="#contact">Contact</a>
-           
     </div>
   </nav>
 
@@ -127,8 +150,8 @@
       container.innerHTML = cart.map(item => {
         total += parseFloat(item.price);
         return `<div class="cart-item"><span>${item.name}</span><span>R${item.price}</span></div>`;
-      }).join("") + `<div class="cart-item"><span>Pargo Delivery</span><span>R90.00</span></div>`
-        + `<div class="cart-item"><strong>Total</strong><strong>R${(total + 90).toFixed(2)}</strong></div>`;
+      }).join("") + `<div class="cart-item"><span>Pargo Delivery</span><span>R90.00</span></div>` +
+        `<div class="cart-item"><strong>Total</strong><strong>R${(total + 90).toFixed(2)}</strong></div>`;
     }
 
     function sendOrder() {
