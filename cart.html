@@ -3,67 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart – Trafsol Data Specialists</title>
-  /* BACKGROUND */
-body {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #fff;
-}
-
-/* MAIN CARD / CONTAINERS */
-.cart-box, 
-.form-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(34, 211, 238, 0.2);
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
-}
-
-/* HEADINGS */
-h1, h2 {
-  color: #22d3ee;
-}
-
-/* TOTAL SECTION LINES */
-.cart-box div {
-  border-bottom: 1px solid rgba(34, 211, 238, 0.2);
-}
-
-/* INPUT FIELDS */
-input, textarea, select {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(34, 211, 238, 0.2);
-  color: #fff;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* BUTTON (MATCH CATALOGUE) */
-button {
-  background: linear-gradient(135deg, #22d3ee, #06b6d4);
-  color: #000;
-  border: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-button:hover {
-  box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
-  transform: scale(1.03);
-}
-
-/* DELIVERY TITLE ICON + TEXT */
-.section-title {
-  color: #22d3ee;
-}
-
-/* REMOVE OLD GOLD COLORS (IMPORTANT) */
-* {
-  border-color: rgba(34, 211, 238, 0.2) !important;
-}
+  <title>Cart –Trafsol Data Specialists</title>
+  <link rel="stylesheet" href="style.css"/>
   <style>
     body {
       margin: 0;
@@ -134,25 +75,6 @@ button:hover {
       color: #FFD700;
     }
   </style>
-  <script>
-// Disable right click
-document.addEventListener("contextmenu", function(e){
-  e.preventDefault();
-});
-
-// Disable key shortcuts
-document.addEventListener("keydown", function(e){
-  if (
-    e.keyCode == 123 || // F12
-    (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl+Shift+I
-    (e.ctrlKey && e.keyCode == 85) || // Ctrl+U
-    (e.ctrlKey && e.shiftKey && e.keyCode == 74) // Ctrl+Shift+J
-  ) {
-    e.preventDefault();
-  }
-});
-</script>
-
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     emailjs.init("R8YQ6uFuEg24lKXoj");
@@ -164,7 +86,7 @@ document.addEventListener("keydown", function(e){
     <div>
       <a href="index.html">Home</a>
       <a href="catalogue.html">Catalogue</a>
-      <a href="index.html">Contact</a>
+      <a href="#contact">Contact</a>
            
     </div>
   </nav>
@@ -247,6 +169,11 @@ document.addEventListener("keydown", function(e){
   </script>
 </body>
 </html>
+
+
+
+
+
 
 
 
