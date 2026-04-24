@@ -268,8 +268,8 @@ document.addEventListener("keydown", function(e){
   </div>
 
   <div class="contact-info">
-    <p>📧  ADMIN@TRAFSOLSA.CO ZA </p>
-    <p>     MAGMOED@TRAFSOLSA.CO.ZA <p>
+    <p>📧 ADMIN@TRAFSOLSA.CO ZA </p>
+    <p>MAGMOED@TRAFSOLSA.CO.ZA <p>
     <p>📞 0845965832</p>
     <p>📍 45 COTSWOLD ROAD FLORIDA HILLS, South Africa</p>
   </div>
@@ -281,87 +281,33 @@ document.addEventListener("keydown", function(e){
 </footer>
 
 <script>
+<script>
 function sendWhatsApp() {
 
   var name = document.getElementById("name").value;
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
   var message = document.getElementById("customerMessage").value;
-  var order = document.getElementById("orderDetails").value;
-  var delivery = document.getElementById("delivery").value;
 
   if(name === "" || phone === "" || email === ""){
     alert("Please fill in all required fields.");
     return;
   }
 
-  var whatsappNumber = "27845965832";
+  var whatsappNumber = "27845965832"; // correct format
 
   var text =
     "Client Request:\n\n" +
     "Name: " + name + "\n" +
     "Phone: " + phone + "\n" +
     "Email: " + email + "\n\n" +
-    "Order Details:\n" + order + "\n\n" +
-    "Delivery Address:\n" + delivery + "\n\n" +
     "Message:\n" + message;
 
   var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
 
   window.open(url, "_blank");
-
-  // clear cart after sending
-  localStorage.removeItem("cart");
-  localStorage.removeItem("orderMessage");
 }
 </script>
-
-}
-<script>
-window.onload = function () {
-
-  const params = new URLSearchParams(window.location.search);
-  const plan = params.get("plan");
-
-  if(plan){
-    
-    // scroll to contact section
-    document.getElementById("contact").scrollIntoView({
-      behavior: "smooth"
-    });
-
-    // autofill message
-    document.getElementById("message").value =
-      "Hi, I'm interested in the " + plan + " plan. Please contact me.";
-
-  }
-
-};
-</script>
- <script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  // Autofill selected plan
-  const params = new URLSearchParams(window.location.search);
-  const plan = params.get("plan");
-
-  if(plan){
-    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
-    document.getElementById("customerMessage").value =
-      "Hi, I'm interested in the " + plan + " plan.";
-  }
-
-  // Autofill cart order
-  const order = localStorage.getItem("orderMessage");
-
-  if(order && document.getElementById("orderDetails")){
-    document.getElementById("orderDetails").value = order;
-    localStorage.removeItem("orderMessage");
-  }
-
-});
-</script>
-
 
 
 </body>
